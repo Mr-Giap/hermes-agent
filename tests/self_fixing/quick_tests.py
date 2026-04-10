@@ -5,7 +5,11 @@ Run: python examples/quick_tests.py
 
 import sys
 import os
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+# Add parent directory to path
+current_dir = os.path.dirname(os.path.abspath(__file__))
+project_root = os.path.dirname(os.path.dirname(current_dir))
+sys.path.insert(0, project_root)
 
 from agent.self_fixing_integration import SelfFixingToolWrapper, IntegrationConfig
 
